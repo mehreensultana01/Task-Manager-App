@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Task Manager</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+    <!-- ================= HEADER ================= -->
+
+    <div class="header">
+
+        <h1>📝 Task Manager</h1>
+
+        <p>
+            Organize your daily tasks efficiently
+        </p>
+
+    </div>
+
+
+    <!-- ================= ADD TASK ================= -->
+
+    <div class="input-section">
+
+        <input
+            type="text"
+            id="taskInput"
+            placeholder="Enter a new task..."
+        >
+
+        <input
+            type="date"
+            id="dueDate"
+        >
+
+        <select id="priority">
+
+            <option value="High">
+                🔴 High
+            </option>
+
+            <option
+                value="Medium"
+                selected>
+                🟡 Medium
+            </option>
+
+            <option value="Low">
+                🟢 Low
+            </option>
+
+        </select>
+
+
+        <select id="category">
+
+            <option value="Work">
+                💼 Work
+            </option>
+
+            <option
+                value="Study"
+                selected>
+                📚 Study
+            </option>
+
+            <option value="Personal">
+                🏠 Personal
+            </option>
+
+            <option value="Shopping">
+                🛒 Shopping
+            </option>
+
+        </select>
+
+
+        <button onclick="addTask()">
+            Add
+        </button>
+
+    </div>
+
+
+    <!-- ================= CONTROLS ================= -->
+
+    <div class="controls">
+
+
+        <input
+            type="text"
+            id="searchTask"
+            placeholder="🔍 Search tasks..."
+            onkeyup="searchTasks()"
+        >
+
+
+        <div class="control-group">
+
+            <label for="filterTask">
+                Filter:
+            </label>
+
+            <select
+                id="filterTask"
+                onchange="filterTasks()">
+
+                <option value="All">
+                    All
+                </option>
+
+                <option value="Completed">
+                    Completed
+                </option>
+
+                <option value="pending">
+                    Pending
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="control-group">
+
+            <label for="sortTask">
+                Sort By:
+            </label>
+
+            <select
+                id="sortTask"
+                onchange="sortTasks()">
+
+                <option value="default">
+                    Default
+                </option>
+
+                <option value="name">
+                    Name
+                </option>
+
+                <option value="date">
+                    Due Date
+                </option>
+
+                <option value="priority">
+                    Priority
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <button
+            id="themeBtn"
+            onclick="toggleTheme()">
+
+            🌙 Dark Mode
+
+        </button>
+
+
+        <button
+            class="clear-btn"
+            onclick="clearCompleted()">
+
+            🗑️ Clear Completed
+
+        </button>
+
+    </div>
+
+
+    <!-- ================= TASK COUNT ================= -->
+
+    <div class="task-count">
+
+        Total Tasks:
+        <span id="taskCount">0</span>
+
+    </div>
+
+
+    <!-- ================= SUMMARY ================= -->
+
+    <div class="summary">
+
+        <div class="summary-card">
+
+            <h3>Total</h3>
+
+            <p id="totalTasks">
+                0
+            </p>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>Completed</h3>
+
+            <p id="completedTasks">
+                0
+            </p>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>Remaining</h3>
+
+            <p id="remainingTasks">
+                0
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= TASK LIST ================= -->
+
+    <ul id="taskList"></ul>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        ©
+        <span id="year"></span>
+
+        Mehreen Sultana
+
+        • Built with HTML, CSS & JavaScript
+
+    </footer>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
